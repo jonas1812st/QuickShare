@@ -1,0 +1,98 @@
+body {
+  background-color: rgb(174, 255, 248);
+}
+
+div.timer-outer {
+  border: 1px none black;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 -8px 15px -6px black;
+  border-radius: 20px;
+  padding: 20px 30px 20px 30px;
+  width: fit-content;
+  text-align: center;
+  position: absolute;
+  top: 3%;
+  left: 2%;
+  transition: 1s;
+
+  .timer {
+    font-size: 40px;
+  }
+}
+
+div.code-display-outer {
+  border: 1px none black;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 -8px 15px -6px black;
+  border-radius: 20px;
+  padding: 20px 30px 20px 30px;
+  width: fit-content;
+  text-align: center;
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  transition: 1s;
+
+  .code-display {
+    font-size: 40px;
+  }
+}
+
+div.centered_container {
+  border: 1px none black;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 -8px 15px -6px black;
+  border-radius: 20px;
+  padding: 20px;
+  padding-top: 40px;
+  min-width: 500px;
+  width: 50%;
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 1s;
+
+  max-height: 76vh;
+  margin-top: 5vh;
+
+  .others-info {
+    text-align: left;
+    width: fit-content;
+    padding: 4px;
+    border: 1px solid #aeadad;
+    border-radius: 5px;
+  }
+
+  .table-outer {
+    max-height: 53vh;
+    overflow: scroll;
+
+    margin-bottom: 20px;
+
+    .amount-downloads{
+      margin-right: 3px;
+    }
+
+    .download-link {
+      padding: 5px 5px 5px 6px;
+
+      background-color: rgb(174, 255, 248);
+
+      border: 1px solid rgb(35, 186, 174);
+      border-radius: 5px;
+
+      cursor: pointer;
+    }
+  }
+}
+
+.parting-line {
+  background-color: #4a4a4a;
+  height: 2px;
+  width: 90%;
+  margin: auto;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}

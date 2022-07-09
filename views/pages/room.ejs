@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/roomPage.css">
+  <link rel="stylesheet" href="/bootstrap/icons/bootstrap-icons.css">
+  <!-- javascript scripts -->
+  <script src="/bootstrap/js/bootstrap.min.js" defer></script>
+  <script src="/js/room.js" defer></script>
+  <!-- socket.io -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <title>Room <%= roomData.roomCode %> - QuickShare</title>
+
+  <script>
+    const roomData = JSON.parse('<%- JSON.stringify(roomData) %>')
+  </script>
+
+</head>
+
+<body>
+  <div class="timer-outer">
+    <h5>verbleibende Zeit</h5>
+    <div class="parting-line"></div>
+    <div class="timer">
+      05:32
+    </div>
+  </div>
+
+  <div class="code-display-outer">
+    <h5>Code</h5>
+    <div class="parting-line"></div>
+    <div class="code-display">
+      <%= roomData.roomCode %>
+    </div>
+  </div>
+
+  <div class="centered_container">
+    <% if (roomData.files.length > 1) { %>
+    <h1>Dateien (<%= roomData.files.length %>)</h1>
+    <% } else { %>
+    <h1>Datei</h1>
+    <% } %>
+    <div class="parting-line"></div>
+
+    <div class="table-outer">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Dateiname</th>
+            <th scope="col">Größe</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% roomData.files.forEach((file, index) => { %>
+          <tr>
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= file.filename %></td>
+            <td><%= file.size %></td>
+            <td>
+              <% if (roomData["own-id"]) { %>
+              <span class="amount-downloads">0</span> <i class="bi bi-download"></i>
+              <% } else { %>
+              <a href="/download?path=/uploads/<%= file.fullname %>" target="_blank" class="download-link">
+                <!-- href="/download?path=/uploads/<%= file.fullname %>" -->
+                <i class="bi bi-download"></i>
+              </a>
+              <% } %>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <div class="parting-line"></div>
+    <% if (roomData["own-id"]) { %>
+      <form action="/delete-room" method="post">
+        <input type="text" name="user-id" id="user-id" value="<%= roomData["own-id"] %>" style="display: none;">
+        <button type="submit" class="btn btn-outline-danger delete-btn"><i class="bi bi-trash"></i> Raum löschen</button>
+      </form>
+    <% } else { %>
+      <a href="/download?path=/zipFiles/<%= roomData.zipName %>" target="_blank" id="downloadAllBtn" title=""
+        class="btn btn-primary download-all">Download all</a>
+    <% } %>
+    
+    <div class="others-info">
+      <span id="watchingAmount">0</span> <i class="bi bi-eye"></i>
+    </div>
+  </div>
+</body>
+
+</html>

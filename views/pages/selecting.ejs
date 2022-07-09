@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/dropPage.css">
+  <link rel="stylesheet" href="/bootstrap/icons/bootstrap-icons.css">
+
+  <!-- javascript scripts -->
+  <script src="/bootstrap/js/bootstrap.min.js" defer></script>
+  <script src="/js/dropPage.js" defer></script>
+  <title>QuickShare</title>
+
+</head>
+
+<body>
+
+  <div class="mt-3 upload_file">
+    <h1>Datei(en) hier <br>hochladen</h1>
+    <form action="/upload" method="POST" target="_blank" class="needs-validation" enctype="multipart/form-data">
+      <div class="file_input_outer">
+        <div class="file_input">
+          <div class="text">
+            <div class="header-selected">
+              Hier klicken oder hineinziehen
+            </div>
+          </div>
+          <input type="file" multiple name="uploadedFile_s" id="uploadedFile_s" required>
+        </div>
+      </div>
+
+      <div class="time_input_outer">
+        <label for="time-limit">Minuten bis die Datei(en) gelöscht werden:</label>
+        <br>
+        <input type="number" id="time-limit" name="time-limit" min="5" max="90" step="5" value="5" required>
+      </div>
+
+      <div class="submit_button">
+        <button type="submit" id="submit-btn" class="submit-btn">HOCHLADEN <i class="bi bi-cloud-upload"></i></button>
+      </div>
+    </form>
+  </div>
+
+</body>
+
+</html>

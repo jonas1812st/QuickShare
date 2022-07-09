@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/homePage.css">
+  <link rel="stylesheet" href="/bootstrap/icons/bootstrap-icons.css">
+  <!-- javascript scripts -->
+  <script src="/bootstrap/js/bootstrap.min.js" defer></script>
+  <!-- <script src="/js/room.js" defer></script> -->
+  <title>Home</title>
+</head>
+
+<body>
+  <div class="upload-self">
+    <h5>Selbst hochladen</h5>
+    <div class="parting-line"></div>
+    <a href="/select" class="btn btn-primary upload-btn">Hochladen <i class="bi bi-arrow-right"></i></a>
+  </div>
+
+
+  <div class="centered_container">
+    <h1>PIN eingeben</h1>
+    <div class="parting-line"></div>
+    <form action="/room-redirecter" method="POST">
+      <div class="input-outer">
+        <input type="text" class="code-input" name="room-pin" placeholder="Raum-PIN" maxlength="7" required>
+      </div>
+      <button type="submit" class="btn btn-outline-primary submit-btn">
+        Eingabe
+      </button>
+    </form>
+  </div>
+</body>
+
+</html>
