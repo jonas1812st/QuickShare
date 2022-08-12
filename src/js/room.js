@@ -26,6 +26,10 @@ socket.on("user-downloaded-file", fileIndex => {
   updateDownloads();
 });
 
+socket.on("roomDeleted", () => {
+  location.reload();
+});
+
 window.onload = function(){updateDownloads();};
 
 //SECTION user-tracking
@@ -52,6 +56,7 @@ function updateDownloads() {
 //SECTION event-listener
 const downloadBtns = document.querySelectorAll(".download-link");
 const downloadAllBtn = document.getElementById("downloadAllBtn");
+const deleteBtn = document.getElementById("delete-btn");
 
 downloadBtns.forEach((btn, index) => {
   btn.addEventListener("click", () => {
@@ -65,6 +70,11 @@ if(downloadAllBtn){
   })
 }
 
+deleteBtn.addEventListener("click", () => {
+  socket.emit("delete-room");
+});
+
+!SECTION
 
 //SECTION timer functions
 const timer = document.querySelector(".timer");

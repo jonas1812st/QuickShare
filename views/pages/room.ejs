@@ -83,7 +83,7 @@
     <% if (roomData["own-id"]) { %>
       <form action="/delete-room" method="post">
         <input type="text" name="user-id" id="user-id" value="<%= roomData["own-id"] %>" style="display: none;">
-        <button type="submit" class="btn btn-outline-danger delete-btn"><i class="bi bi-trash"></i> Raum löschen</button>
+        <button type="submit" class="btn btn-outline-danger delete-btn" id="delete-btn"><i class="bi bi-trash"></i> Raum löschen</button>
       </form>
     <% } else { %>
       <a href="/download?path=/zipFiles/<%= roomData.zipName %>" target="_blank" id="downloadAllBtn" title=""

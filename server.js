@@ -287,6 +287,10 @@ io.on("connection", (socket) => {
     }
   });
 
+  socket.on("delete-room", () => {
+    io.to(ownRoom).emit("roomDeleted");
+  })
+
   function peopleInRoom(roomName) {
     return io.sockets.adapter.rooms.get(roomName).size;
   }
