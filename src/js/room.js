@@ -27,7 +27,7 @@ socket.on("user-downloaded-file", fileIndex => {
 });
 
 socket.on("roomDeleted", () => {
-  location.reload();
+  location.pathname("/");
 });
 
 window.onload = function(){updateDownloads();};
@@ -70,11 +70,14 @@ if(downloadAllBtn){
   })
 }
 
-deleteBtn.addEventListener("click", () => {
-  socket.emit("delete-room");
-});
+if(deleteBtn){
+  deleteBtn.addEventListener("click", () => {
+    socket.emit("delete-room");
+  });
+}
 
-!SECTION
+
+/* !SECTION */
 
 //SECTION timer functions
 const timer = document.querySelector(".timer");
