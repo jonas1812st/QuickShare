@@ -27,7 +27,7 @@ socket.on("user-downloaded-file", fileIndex => {
 });
 
 socket.on("roomDeleted", () => {
-  location.pathname("/");
+  location.pathname = "/";
 });
 
 window.onload = function(){updateDownloads();};
