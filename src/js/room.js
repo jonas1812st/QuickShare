@@ -119,4 +119,5 @@ function getCookie(cname) {
 
 setTimeout(() => {
   window.close();
+  location.pathname = "/";
 }, (roomData.deletion_date - Date.now()) + 500);
