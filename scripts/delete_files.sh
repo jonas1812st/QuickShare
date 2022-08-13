@@ -8,7 +8,7 @@ read -a splitpwd <<< $text
 if [ "${splitpwd[${#splitpwd[*]}-1]}" == "uploads" ]; then
   for file in *
   do
-    echo $file
+    rm $file
   done
 
   touch initializeFile.txt
@@ -24,7 +24,7 @@ read -a splitpwd <<< $text
 if [ "${splitpwd[${#splitpwd[*]}-1]}" == "zipFiles" ]; then
   for file in *
   do
-    echo $file
+    rm $file
   done
 
   touch initializeFile.txt
